@@ -1,6 +1,6 @@
 ---
-name: appgap-report
-description: Run a full AppGap competitor-gap analysis locally from App Store links or app names — collects real public reviews, extracts signals, finds market gaps and writes the finished report as HTML and Markdown. Use when asked for an AppGap report, a competitor/review analysis of iOS apps, or "what should I build differently" from App Store reviews. No API key and no account: you are the analysis engine, and the only network calls are to Apple's public endpoints.
+name: appstore-analysis
+description: Analyze Apple App Store competitor reviews and turn them into an evidence-backed product report, locally, from App Store links or app names — collects real public reviews, extracts signals, finds market gaps and writes the finished report as HTML and Markdown. Use when asked for an AppGap report, a competitor/review analysis of iOS apps, or "what should I build differently" from App Store reviews. No API key and no account: you are the analysis engine, and the only network calls are to Apple's public endpoints.
 ---
 
 # AppGap — local report

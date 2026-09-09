@@ -21,8 +21,8 @@ The repo is private, so you need to have been added as a collaborator and be
 logged in to GitHub (`gh auth login`) before cloning.
 
 ```bash
-gh repo clone Hitchiban/appgap-report ~/src/appgap-report
-cd ~/src/appgap-report && ./install.sh
+gh repo clone Hitchiban/appstore-analysis ~/src/appstore-analysis
+cd ~/src/appstore-analysis && ./install.sh
 ```
 
 `install.sh` links this folder into every agent it finds, so one `git pull`
@@ -32,8 +32,8 @@ By hand, if you prefer:
 
 | Agent | Put it in | Invoke with |
 |---|---|---|
-| Claude Code | `~/.claude/skills/appgap-report`, or `<project>/.claude/skills/appgap-report` | `/appgap-report` |
-| Codex | `~/.agents/skills/appgap-report`, or `<repo>/.agents/skills/appgap-report` | `$appgap-report` |
+| Claude Code | `~/.claude/skills/appstore-analysis`, or `<project>/.claude/skills/appstore-analysis` | `/appstore-analysis` |
+| Codex | `~/.agents/skills/appstore-analysis`, or `<repo>/.agents/skills/appstore-analysis` | `$appstore-analysis` |
 
 Requirements: Node 18+ (22 recommended). No dependencies, nothing to build.
 
@@ -44,10 +44,10 @@ started. In Claude Code, `/skills` lists what it can see.
 ## Use
 
 ```
-/appgap-report https://apps.apple.com/us/app/whatever/id123456789 https://apps.apple.com/us/app/other/id987654321
+/appstore-analysis https://apps.apple.com/us/app/whatever/id123456789 https://apps.apple.com/us/app/other/id987654321
 ```
 
-(`$appgap-report ...` in Codex.) Or just describe it — "compare these two apps' reviews and tell me what to build
+(`$appstore-analysis ...` in Codex.) Or just describe it — "compare these two apps' reviews and tell me what to build
 differently" — and the skill triggers on its own. App names work too: it searches
 the store and asks you to pick before going further.
 

@@ -10,7 +10,7 @@
 set -e
 
 SRC=$(cd "$(dirname "$0")" && pwd)
-NAME=appgap-report
+NAME=appstore-analysis
 MODE=link
 [ "$1" = "--copy" ] && MODE=copy
 
