@@ -120,9 +120,8 @@ other program you run. Elsewhere it depends on the sandbox:
 
 ## Credit
 
-Built from [AppGap](https://github.com/Hitchiban/appgap), which does this as a
-hosted product. The scripts here are ports of its collector, its evidence
-validator and its scorer, so a local report is held to the same rules as a hosted
-one.
+Built from AppGap, a hosted product doing the same analysis as a service. The
+scripts here are ports of its collector, its evidence validator and its scorer,
+so a local report is held to the same rules as a hosted one.
 
 MIT licensed. Use it, fork it, point it at your own market.
