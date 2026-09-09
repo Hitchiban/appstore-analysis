@@ -9,7 +9,7 @@
  * dataset floor in lib/reviews/types.ts.
  *
  * Node built-ins only: this must run without installing anything, from any
- * directory, with no ANTHROPIC_API_KEY, no Supabase and no Stripe.
+ * directory, with no API key, no account and no credentials of any kind.
  *
  *   node fetch.mjs search "muslim pro" --storefront FR
  *   node fetch.mjs collect <url|id> <url|id> [...] --storefront FR

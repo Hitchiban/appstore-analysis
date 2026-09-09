@@ -14,17 +14,32 @@ payment step; the only network calls go to Apple's public endpoints.
 
 ## Install
 
+Works in **Claude Code** and **Codex**. Both read the same `SKILL.md` format; they
+only disagree on where skills live.
+
+The repo is private, so you need to have been added as a collaborator and be
+logged in to GitHub (`gh auth login`) before cloning.
+
 ```bash
-git clone https://github.com/Hitchiban/appgap-report.git ~/.claude/skills/appgap-report
+gh repo clone Hitchiban/appgap-report ~/src/appgap-report
+cd ~/src/appgap-report && ./install.sh
 ```
 
-That is the whole install. Node 18+ (22 recommended), no dependencies, nothing to build.
+`install.sh` links this folder into every agent it finds, so one `git pull`
+updates all of them. Pass `--copy` for independent copies instead of links.
 
-Claude Code picks the skill up within the running session. If `~/.claude/skills/`
-did not exist before, restart Claude Code once so it starts watching the directory.
-Run `/skills` to confirm it is listed.
+By hand, if you prefer:
 
-For one project only, clone into `<project>/.claude/skills/appgap-report` instead.
+| Agent | Put it in | Invoke with |
+|---|---|---|
+| Claude Code | `~/.claude/skills/appgap-report`, or `<project>/.claude/skills/appgap-report` | `/appgap-report` |
+| Codex | `~/.agents/skills/appgap-report`, or `<repo>/.agents/skills/appgap-report` | `$appgap-report` |
+
+Requirements: Node 18+ (22 recommended). No dependencies, nothing to build.
+
+Restart the agent once if the skill does not show up — both watch their skill
+folders, but neither watches a folder that did not exist when the session
+started. In Claude Code, `/skills` lists what it can see.
 
 ## Use
 
@@ -32,7 +47,7 @@ For one project only, clone into `<project>/.claude/skills/appgap-report` instea
 /appgap-report https://apps.apple.com/us/app/whatever/id123456789 https://apps.apple.com/us/app/other/id987654321
 ```
 
-Or just describe it — "compare these two apps' reviews and tell me what to build
+(`$appgap-report ...` in Codex.) Or just describe it — "compare these two apps' reviews and tell me what to build
 differently" — and the skill triggers on its own. App names work too: it searches
 the store and asks you to pick before going further.
 
@@ -92,14 +107,16 @@ every app and storefront on 2026-09-01; this uses the store client's
 `userReviewsRow` endpoint instead. If collection ever returns nothing everywhere
 at once, that is the thing to check, and `scripts/fetch.mjs` is the one file to fix.
 
-## Other Claude surfaces
+## Other surfaces
 
-Written for Claude Code, where skills have normal network access. On claude.ai you
-can upload a skill as a zip, but collection needs outbound access to
-`itunes.apple.com` (network egress is a per-account setting, and off by default on
-Team/Enterprise), and the container must have Node on the PATH — untested. Skills
-running in the Claude API's code-execution container have no network access at
-all, so collection cannot work there.
+Written for terminal agents, where a skill has the same network access as any
+other program you run. Elsewhere it depends on the sandbox:
+
+- **claude.ai** — custom skills upload as a zip, but collection needs outbound
+  access to `itunes.apple.com` (network egress is a per-account setting, off by
+  default on Team and Enterprise) and Node on the container's PATH. Untested.
+- **Claude API code execution** — no network access at all, so collection cannot
+  work there.
 
 ## Credit
 
